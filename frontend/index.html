@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Resume-Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600">AI Resume Analyzer</h1>
+            <p class="text-gray-600 mt-2">Upload your resume, get AI feedback, download improved version</p>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">📤 Upload Your Resume</h2>
+            
+            <div id="uploadArea" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 transition cursor-pointer">
+                <div id="uploadPrompt">
+                    <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    <p class="mt-2 text-gray-600">Drag & drop your resume here, or click to browse</p>
+                    <p class="text-sm text-gray-400 mt-1">Supports PDF and DOCX files</p>
+                </div>
+                <div id="uploadProgress" class="hidden">
+                    <p class="text-gray-600">Uploading...</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx" />
+            
+            <div id="fileInfo" class="hidden mt-4 p-3 bg-gray-50 rounded-lg">
+                <p><strong>File:</strong> <span id="fileName"></span></p>
+                <p><strong>Status:</strong> <span id="fileStatus" class="text-green-600">Uploaded successfully</span></p>
+            </div>
+
+            <button id="analyzeBtn" class="hidden mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                🧠 Analyze & Improve Resume
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="hidden">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-red-600">⚠️ Weaknesses Found</h2>
+                <ul id="weaknessesList" class="list-disc list-inside space-y-2 text-gray-700"></ul>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-green-600">✅ Improved Resume</h2>
+                <div id="improvedText" class="bg-gray-50 p-4 rounded-lg max-h-96 overflow-y-auto whitespace-pre-wrap text-sm text-gray-700"></div>
+            </div>
+
+            <button id="downloadBtn" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition text-lg font-semibold">
+                📥 Download Improved Resume
+            </button>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mt-4"></div>
+    </div>
+
+    <script src="dist/script.js"></script>
+</body>
+</html>

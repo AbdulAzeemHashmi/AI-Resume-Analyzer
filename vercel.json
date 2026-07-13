@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "frontend",
+      "path": "frontend",
+      "framework": null
+    },
+    {
+      "name": "backend",
+      "path": "backend",
+      "framework": null
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ]
+}
