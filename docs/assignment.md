@@ -1,7 +1,9 @@
 # GitHub Assignment Documentation
 
 **Repository**: https://github.com/AbdulAzeemHashmi/AI-Resume-Analyzer
+
 **Author**: Abdul Azeem
+
 **Date**: 2026-07-13
 
 ## Project Overview
