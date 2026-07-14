@@ -4,7 +4,7 @@
 
 **Author**: Abdul Azeem
 
-**Date**: 2026-07-13
+**Date**: 14-07-2026
 
 ## Project Overview
 AI-Resume-Analyzer - A web application that uses AI to analyze and improve resumes.
