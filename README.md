@@ -139,8 +139,6 @@ AI-Resume-Analyzer/
 │   ├── script.ts              - TypeScript logic
 │   ├── package.json          - Node.js dependencies
 │   └── ...                    - Other static assets
-├── docs/
-│   └── assignment.md          - Project documentation
 ├── vercel.json                - Vercel deployment configuration
 ├── .gitignore                 - Files ignored by Git
 └── README.md                  - This file
