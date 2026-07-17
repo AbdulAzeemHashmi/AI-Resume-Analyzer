@@ -57,3 +57,4 @@ build/
 *.crt
 *.p12
 *.p8
+.vercel
