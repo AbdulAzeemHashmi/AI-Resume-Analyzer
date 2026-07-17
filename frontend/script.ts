@@ -120,7 +120,7 @@ async function handleFile(file: File): Promise<void> {
 
         updateProgress(30);
 
-        const response = await fetch('http://localhost:5000/upload', {
+        const response = await fetch('/api/upload', {
             method: 'POST',
             body: formData
         });
@@ -180,7 +180,7 @@ analyzeBtn.addEventListener('click', async () => {
 
     try {
         // Step 1: Analyze
-        const analyzeResponse = await fetch('http://localhost:5000/analyze', {
+        const analyzeResponse = await fetch('/api/analyze', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: uploadedText })
@@ -200,7 +200,7 @@ analyzeBtn.addEventListener('click', async () => {
         weaknesses = analyzeData.weaknesses || [];
 
         // Step 2: Enhance
-        const enhanceResponse = await fetch('http://localhost:5000/enhance', {
+        const enhanceResponse = await fetch('/api/enhance', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -270,7 +270,7 @@ downloadBtn.addEventListener('click', async () => {
     downloadBtn.textContent = '⏳ Generating...';
 
     try {
-        const response = await fetch('http://localhost:5000/generate', {
+        const response = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
