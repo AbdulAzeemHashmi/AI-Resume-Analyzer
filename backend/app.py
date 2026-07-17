@@ -22,7 +22,10 @@ CORS(app)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Configure upload folder
-UPLOAD_FOLDER = "uploads"
+if os.environ.get("VERCEL") or os.name != "nt":
+    UPLOAD_FOLDER = "/tmp"
+else:
+    UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # ============================================
@@ -187,11 +190,13 @@ def generate_docx(text):
 # ============================================
 
 @app.route('/health', methods=['GET'])
+@app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint"""
     return jsonify({"status": "healthy"})
 
 @app.route('/upload', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     """Upload and parse a resume file"""
     try:
@@ -232,6 +237,7 @@ def upload_file():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/analyze', methods=['POST'])
+@app.route('/api/analyze', methods=['POST'])
 def analyze():
     """Analyze resume text"""
     try:
@@ -249,6 +255,7 @@ def analyze():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/enhance', methods=['POST'])
+@app.route('/api/enhance', methods=['POST'])
 def enhance():
     """Generate improved resume"""
     try:
@@ -266,6 +273,7 @@ def enhance():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/generate', methods=['POST'])
+@app.route('/api/generate', methods=['POST'])
 def generate_file():
     """Generate output file"""
     try:
